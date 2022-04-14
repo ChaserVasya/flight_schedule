@@ -36,14 +36,10 @@ dependencies:
 
   #firebase
   firebase_core: ^1.2.0
-  firebase_auth: ^3.0.0
   cloud_firestore: ^3.0.0
-  cloud_functions: ^3.0.0
-  firebase_crashlytics: ^2.0.6
 
   #store
-  path_provider: ^2.0.0
-  path: ^1.8.0
+  shared_preferences : ^2.0.0
 
 dev_dependencies:
   test: 

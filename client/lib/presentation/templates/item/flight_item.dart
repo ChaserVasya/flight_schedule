@@ -14,9 +14,10 @@ class FlightItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment,: CrossAxisAlignment.stretch,
       children: [
         description,
-        FavoriteToggle(description.info.id),
+        FavoriteToggle(description.flight.id),
       ],
     );
   }

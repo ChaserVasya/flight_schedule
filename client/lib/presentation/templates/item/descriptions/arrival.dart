@@ -1,24 +1,24 @@
-import 'package:flight_schedule/domain/entities/flight_info.dart';
+import 'package:flight_schedule/domain/entities/flight.dart';
 import 'package:flight_schedule/domain/entities/flight_status.dart';
 import 'package:flight_schedule/presentation/templates/item/descriptions/flight.dart';
 import 'package:flutter/material.dart';
 
 class ArrivalDescription extends FlightDescription {
-  const ArrivalDescription(FlightInfo info, {Key? key}) : super(info: info, key: key);
+  const ArrivalDescription(Flight flight, {Key? key}) : super(flight: flight, key: key);
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Column(children: [
-          Text(info.arrivalCity),
-          Text(info.departureCity),
-          Text(info.flights.join(", ")),
+          Text(flight.arrivalCity),
+          Text(flight.departureCity),
+          Text(flight.codes.join(", ")),
         ]),
         Column(children: [
-          Text(info.status.toLocalisedString()),
-          Text("${info.actualTime.hour}:${info.actualTime.minute}"),
-          Text("${info.sheduledTime}"),
+          Text(flight.status.toLocalisedString()),
+          Text("${flight.actualTime.hour}:${flight.actualTime.minute}"),
+          Text("${flight.sheduledTime}"),
         ]),
       ],
     );

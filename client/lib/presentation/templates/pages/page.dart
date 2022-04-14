@@ -13,7 +13,9 @@ class PageTemplate extends StatelessWidget {
       appBar: AppBar(),
       drawer: DrawerTemplate(),
       bottomNavigationBar: const BottomNavigationBarTemplate(),
-      body: child,
+      body: Center(
+        child: child,
+      ),
     );
   }
 }
