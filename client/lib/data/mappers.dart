@@ -11,7 +11,7 @@ Flight extractFlight(QueryDocumentSnapshot<Map<String, dynamic>> doc) {
     arrivalCity: json["arrivalCity"],
     departureCity: json["departureCity"],
     actualTime: DateTime.fromMillisecondsSinceEpoch(json["actualTime"]),
-    sheduledTime: DateTime.fromMillisecondsSinceEpoch(json["sheduledTime"]),
+    scheduledTime: DateTime.fromMillisecondsSinceEpoch(json["scheduledTime"]),
     status: stringToStatus(json["status"]),
   );
 }

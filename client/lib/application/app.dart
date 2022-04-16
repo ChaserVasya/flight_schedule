@@ -1,3 +1,4 @@
+import 'package:flight_schedule/presentation/notifiers/bottom_bar.dart';
 import 'package:flight_schedule/presentation/notifiers/favorite.dart';
 import 'package:flight_schedule/presentation/notifiers/flight.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,7 @@ class App extends StatelessWidget {
       providers: [
         ChangeNotifierProvider<FavoriteViewModel>(create: (_) => FavoriteViewModel()),
         ChangeNotifierProvider<FlightViewModel>(create: (_) => FlightViewModel()),
+        ChangeNotifierProvider<BottomBarViewModel>(create: (_) => BottomBarViewModel()),
       ],
       child: MaterialApp(
         title: 'Flight schedule',

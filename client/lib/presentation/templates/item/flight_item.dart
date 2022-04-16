@@ -6,18 +6,20 @@ import 'package:provider/provider.dart';
 class FlightItem extends StatelessWidget {
   const FlightItem({
     Key? key,
+    required this.id,
     required this.description,
   }) : super(key: key);
 
+  final int id;
   final FlightDescription description;
 
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment,: CrossAxisAlignment.stretch,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        description,
-        FavoriteToggle(description.flight.id),
+        Expanded(child: description),
+        FavoriteToggle(id),
       ],
     );
   }

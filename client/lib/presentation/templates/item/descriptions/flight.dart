@@ -1,8 +1,25 @@
-import 'package:flight_schedule/domain/entities/flight.dart';
 import 'package:flutter/material.dart';
 
 abstract class FlightDescription extends StatelessWidget {
-  const FlightDescription({required this.flight, Key? key}) : super(key: key);
+  const FlightDescription({Key? key}) : super(key: key);
 
-  final Flight flight;
+  List<Text> leftColumn();
+  List<Text> rightColumn();
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: leftColumn(),
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: rightColumn(),
+        ),
+      ],
+    );
+  }
 }

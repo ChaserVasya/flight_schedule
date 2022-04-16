@@ -7,7 +7,7 @@ class Flight {
   final String departureCity;
 
   final DateTime actualTime;
-  final DateTime sheduledTime;
+  final DateTime scheduledTime;
 
   final List<String> codes;
 
@@ -20,6 +20,6 @@ class Flight {
     required this.arrivalCity,
     required this.departureCity,
     required this.actualTime,
-    required this.sheduledTime,
+    required this.scheduledTime,
   });
 }

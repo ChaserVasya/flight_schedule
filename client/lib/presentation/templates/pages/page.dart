@@ -3,18 +3,24 @@ import 'package:flight_schedule/presentation/templates/scaffold/drawer.dart';
 import 'package:flutter/material.dart';
 
 class PageTemplate extends StatelessWidget {
-  const PageTemplate({required this.child, Key? key}) : super(key: key);
+  const PageTemplate({required this.child, this.title, Key? key}) : super(key: key);
 
   final Widget child;
+  final String? title;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      drawer: DrawerTemplate(),
-      bottomNavigationBar: const BottomNavigationBarTemplate(),
-      body: Center(
-        child: child,
+      appBar: AppBar(title: title != null ? Text(title!) : null),
+      drawer: const DrawerTemplate(),
+      bottomNavigationBar: BottomNavigationBarTemplate(),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Center(
+            child: child,
+          ),
+        ),
       ),
     );
   }

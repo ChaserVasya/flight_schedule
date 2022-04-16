@@ -6,6 +6,9 @@ import 'package:flight_schedule/presentation/templates/pages/page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+///TODO Refactor [FlightItem], [SchedulePageTemplate], [FlightDescription].
+/// Refactor it public API, constructors, injections.
+
 class SchedulePageTemplate extends StatelessWidget {
   const SchedulePageTemplate({
     Key? key,
@@ -21,20 +24,27 @@ class SchedulePageTemplate extends StatelessWidget {
     return PageTemplate(
       child: FutureBuilder<List<Flight>>(
         future: context.read<FlightViewModel>().flights,
-        builder: (_, snap) {
-          if (snap.hasData) {
-            snap.data!.retainWhere(flightFilter);
-            return ListView.separated(
-              itemCount: snap.data!.length,
-              separatorBuilder: (_, __) => const Divider(),
-              itemBuilder: (_, i) => FlightItem(
-                description: descriptionBuilder(snap.data![i]),
-              ),
-            );
-          } else {
-            return const CircularProgressIndicator();
-          }
-        },
+        builder: contentBuilder,
+      ),
+    );
+  }
+
+  Widget contentBuilder(BuildContext _, AsyncSnapshot<List<Flight>> snap) {
+    if (snap.hasData) {
+      snap.data!.retainWhere(flightFilter);
+      return listBuilder(snap.data!);
+    } else {
+      return const CircularProgressIndicator();
+    }
+  }
+
+  Widget listBuilder(List<Flight> flights) {
+    return ListView.separated(
+      itemCount: flights.length,
+      separatorBuilder: (_, __) => Divider(color: Colors.grey[500]),
+      itemBuilder: (_, i) => FlightItem(
+        id: flights[i].id,
+        description: descriptionBuilder(flights[i]),
       ),
     );
   }

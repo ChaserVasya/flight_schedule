@@ -1,7 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flight_schedule/application/injection.dart';
 import 'package:flight_schedule/firebase_options.dart';
-import 'package:flight_schedule/presentation/templates/pages/page.dart';
 import 'package:flutter/material.dart';
 
 class InitPage extends StatefulWidget {
@@ -31,7 +30,11 @@ class _InitPageState extends State<InitPage> {
 
   @override
   Widget build(BuildContext context) {
-    if (inited) Future.microtask(() => Navigator.pushNamed(context, "/arrival"));
-    return const Scaffold(body: CircularProgressIndicator());
+    if (inited) Future.microtask(() => Navigator.pushReplacementNamed(context, "/arrival"));
+    return const Scaffold(
+      body: Center(
+        child: CircularProgressIndicator(),
+      ),
+    );
   }
 }

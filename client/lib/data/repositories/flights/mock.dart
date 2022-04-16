@@ -4,7 +4,9 @@ import 'package:flight_schedule/domain/repositories/flights.dart';
 
 class FlightsRepoMock implements FlightsRepo {
   @override
-  Future<List<Flight>> getAll() => Future.value(_flights);
+  Future<List<Flight>> getAll() {
+    return Future.value(List.from(_flights));
+  }
 
   static final List<Flight> _flights = [
     Flight(
@@ -14,7 +16,7 @@ class FlightsRepoMock implements FlightsRepo {
       arrivalCity: "Южно-Сахалинск",
       departureCity: "Москва",
       actualTime: DateTime(2022, 4, 14, 10, 15),
-      sheduledTime: DateTime(2022, 4, 14, 15, 00),
+      scheduledTime: DateTime(2022, 4, 14, 15, 00),
     ),
     Flight(
       id: 3,
@@ -23,16 +25,16 @@ class FlightsRepoMock implements FlightsRepo {
       arrivalCity: "Южно-Сахалинск",
       departureCity: "Москва",
       actualTime: DateTime(2022, 4, 14, 22, 15),
-      sheduledTime: DateTime(2022, 4, 14, 15, 00),
+      scheduledTime: DateTime(2022, 4, 14, 15, 00),
     ),
     Flight(
       id: 7,
       status: FlightStatus.canceled,
       codes: ["lala-321", "hui-1488"],
-      arrivalCity: "Хуёвые Луги",
+      arrivalCity: "Засранные Луги",
       departureCity: "Южно-Сахалинск",
       actualTime: DateTime(2022, 4, 14, 22, 15),
-      sheduledTime: DateTime(2022, 4, 14, 15, 00),
+      scheduledTime: DateTime(2022, 4, 14, 15, 00),
     ),
     Flight(
       id: 4,
@@ -41,7 +43,7 @@ class FlightsRepoMock implements FlightsRepo {
       arrivalCity: "Москва",
       departureCity: "Южно-Сахалинск",
       actualTime: DateTime(2022, 4, 15, 00, 15),
-      sheduledTime: DateTime(2023, 4, 14, 15, 00),
+      scheduledTime: DateTime(2023, 4, 14, 15, 00),
     ),
   ];
 }
