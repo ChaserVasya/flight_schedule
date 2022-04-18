@@ -13,7 +13,7 @@ class PageTemplate extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: title != null ? Text(title!) : null),
       drawer: const DrawerTemplate(),
-      bottomNavigationBar: BottomNavigationBarTemplate(),
+      bottomNavigationBar: const BottomNavigationBarTemplate(),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16.0),

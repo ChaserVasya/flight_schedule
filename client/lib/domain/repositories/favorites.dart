@@ -1,4 +1,4 @@
 abstract class FavoritesRepo {
-  set favs(Set<int> newFavs);
-  Set<int> get favs;
+  Future<void> set(Set<int> favs);
+  Future<Set<int>> get();
 }

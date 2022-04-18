@@ -1,5 +1,5 @@
 import 'package:flight_schedule/domain/entities/flight.dart';
 
 abstract class FlightsRepo {
-  Future<List<Flight>> getAll();
+  Future<List<Flight>> get();
 }

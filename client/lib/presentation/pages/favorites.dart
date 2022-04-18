@@ -1,4 +1,4 @@
-import 'package:flight_schedule/presentation/notifiers/favorite.dart';
+import 'package:flight_schedule/presentation/notifiers/schedule_page.dart';
 import 'package:flight_schedule/presentation/templates/item/descriptions/arrival.dart';
 import 'package:flight_schedule/presentation/templates/item/descriptions/departure.dart';
 import 'package:flight_schedule/presentation/templates/pages/schedule_page.dart';
@@ -10,12 +10,12 @@ class FavoritesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isFavorite = context.read<FavoriteViewModel>().isFavorite;
+    final favStatus = context.read<SchedulePageViewModel>().favoriteStatus;
     return SchedulePageTemplate(
-      flightFilter: (flight) => isFavorite(flight.id),
+      flightFilter: (flight) => favStatus(flight.id) == Status.favorite,
       descriptionBuilder: (flight) {
-        if (flight.departureCity == "Южно-Сахалинск") return DepartureDescription(flight);
-        if (flight.arrivalCity == "Южно-Сахалинск") return ArrivalDescription(flight);
+        if (flight.departureCity == "Ю-САХАЛИНСК") return DepartureDescription(flight);
+        if (flight.arrivalCity == "Ю-САХАЛИНСК") return ArrivalDescription(flight);
         throw Exception("Flight without category");
       },
     );

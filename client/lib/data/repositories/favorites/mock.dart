@@ -4,8 +4,8 @@ class FavoritesRepoMock implements FavoritesRepo {
   Set<int> _favs = {1, 2, 3, 4, 5};
 
   @override
-  Set<int> get favs => _favs;
+  Future<Set<int>> get() async => _favs;
 
   @override
-  set favs(Set<int> newFavs) => _favs = newFavs;
+  Future<void> set(Set<int> newFavs) async => _favs = newFavs;
 }

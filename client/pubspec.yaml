@@ -37,6 +37,7 @@ dependencies:
   #firebase
   firebase_core: ^1.2.0
   cloud_firestore: ^3.0.0
+  firebase_messaging: ^11.0.0
 
   #store
   shared_preferences : ^2.0.0

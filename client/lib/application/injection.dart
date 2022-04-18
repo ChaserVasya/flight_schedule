@@ -1,20 +1,19 @@
-import 'package:flight_schedule/data/repositories/favorites/local.dart';
+import 'package:flight_schedule/data/repositories/favorites/firebase.dart';
+import 'package:flight_schedule/data/repositories/favorites/mock.dart';
+import 'package:flight_schedule/data/repositories/flights/firebase.dart';
 import 'package:flight_schedule/data/repositories/flights/mock.dart';
 import 'package:flight_schedule/domain/repositories/favorites.dart';
 import 'package:flight_schedule/domain/repositories/flights.dart';
 import 'package:get_it/get_it.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 final getIt = GetIt.instance;
 
 Future<void> inject() async {
   getIt.registerSingleton<FavoritesRepo>(
-    FavoritesRepoLocal(
-      await SharedPreferences.getInstance(),
-    ),
+    FavoritesRepoFirebase(),
   );
 
   getIt.registerSingleton<FlightsRepo>(
-    FlightsRepoMock(),
+    FlightsRepoFirebase(),
   );
 }

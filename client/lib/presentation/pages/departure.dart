@@ -8,7 +8,7 @@ class DeparturePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SchedulePageTemplate(
-      flightFilter: (flight) => flight.departureCity == "Южно-Сахалинск",
+      flightFilter: (flight) => flight.departureCity == "Ю-САХАЛИНСК",
       descriptionBuilder: (flight) => DepartureDescription(flight),
     );
   }

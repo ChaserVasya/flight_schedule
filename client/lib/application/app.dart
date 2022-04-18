@@ -1,6 +1,5 @@
 import 'package:flight_schedule/presentation/notifiers/bottom_bar.dart';
-import 'package:flight_schedule/presentation/notifiers/favorite.dart';
-import 'package:flight_schedule/presentation/notifiers/flight.dart';
+import 'package:flight_schedule/presentation/notifiers/schedule_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -13,8 +12,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<FavoriteViewModel>(create: (_) => FavoriteViewModel()),
-        ChangeNotifierProvider<FlightViewModel>(create: (_) => FlightViewModel()),
+        ChangeNotifierProvider<SchedulePageViewModel>(create: (_) => SchedulePageViewModel()),
         ChangeNotifierProvider<BottomBarViewModel>(create: (_) => BottomBarViewModel()),
       ],
       child: MaterialApp(

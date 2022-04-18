@@ -1,5 +1,5 @@
 import 'package:flight_schedule/domain/entities/flight.dart';
-import 'package:flight_schedule/presentation/notifiers/flight.dart';
+import 'package:flight_schedule/presentation/notifiers/schedule_page.dart';
 import 'package:flight_schedule/presentation/templates/item/descriptions/flight.dart';
 import 'package:flight_schedule/presentation/templates/item/flight_item.dart';
 import 'package:flight_schedule/presentation/templates/pages/page.dart';
@@ -22,23 +22,31 @@ class SchedulePageTemplate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PageTemplate(
-      child: FutureBuilder<List<Flight>>(
-        future: context.read<FlightViewModel>().flights,
+      child: FutureBuilder<void>(
+        future: context.read<SchedulePageViewModel>().retrieve(),
         builder: contentBuilder,
       ),
     );
   }
 
-  Widget contentBuilder(BuildContext _, AsyncSnapshot<List<Flight>> snap) {
-    if (snap.hasData) {
-      snap.data!.retainWhere(flightFilter);
-      return listBuilder(snap.data!);
-    } else {
-      return const CircularProgressIndicator();
+  Widget contentBuilder(BuildContext context, AsyncSnapshot<void> snap) {
+    switch (snap.connectionState) {
+      case ConnectionState.none:
+        throw Exception();
+      case ConnectionState.waiting:
+        return const CircularProgressIndicator();
+      case ConnectionState.active:
+        return const CircularProgressIndicator();
+      case ConnectionState.done:
+        return listBuilder(context);
     }
   }
 
-  Widget listBuilder(List<Flight> flights) {
+  Widget listBuilder(BuildContext context) {
+    var flights = context.read<SchedulePageViewModel>().flights;
+
+    flights.retainWhere(flightFilter);
+
     return ListView.separated(
       itemCount: flights.length,
       separatorBuilder: (_, __) => Divider(color: Colors.grey[500]),

@@ -1,4 +1,4 @@
-import 'package:flight_schedule/presentation/notifiers/favorite.dart';
+import 'package:flight_schedule/presentation/notifiers/schedule_page.dart';
 import 'package:flight_schedule/presentation/templates/item/descriptions/flight.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -33,10 +33,23 @@ class FavoriteToggle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () => context.read<FavoriteViewModel>().toggleFavoriteState(id),
-      child: Selector<FavoriteViewModel, bool>(
-        selector: (_, viewModel) => viewModel.isFavorite(id),
-        builder: (_, isFavorite, __) => Icon(isFavorite ? Icons.star : Icons.star_border),
+      onPressed: () => context.read<SchedulePageViewModel>().toggleFavoriteState(id),
+      child: Selector<SchedulePageViewModel, Status>(
+        selector: (_, viewModel) => viewModel.favoriteStatus(id),
+        builder: (_, favoriteStatus, __) {
+          switch (favoriteStatus) {
+            case Status.favorite:
+              return const Icon(Icons.star);
+            case Status.notFavorite:
+              return const Icon(Icons.star_border);
+            case Status.refreshing:
+              return const SizedBox(
+                height: 20,
+                width: 20,
+                child: CircularProgressIndicator(),
+              );
+          }
+        },
       ),
     );
   }
