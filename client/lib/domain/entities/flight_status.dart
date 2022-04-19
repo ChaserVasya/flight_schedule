@@ -22,12 +22,12 @@ extension FlightStatusUtils on FlightStatus {
       case FlightStatus.canceled:
         return "Отменено";
       case FlightStatus.delay:
-        return "Задержка";
+        return "Задержан до";
 
       case FlightStatus.inFlight:
         return "В полёте";
       case FlightStatus.arrived:
-        return "Прибыл";
+        return "Прибыл в";
 
       case FlightStatus.checkIn:
         return "Регистрация";

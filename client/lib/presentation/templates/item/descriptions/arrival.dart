@@ -20,10 +20,26 @@ class ArrivalDescription extends FlightDescription {
 
   @override
   List<Text> rightColumn() {
-    return [
-      Text(flight.status.toLocalisedString()),
-      Text("в " + DateFormat.Hm().format(flight.actualTime)),
-      Text("По расписанию " + DateFormat.Hm().format(flight.scheduledTime)),
-    ];
+    final status = flight.status.toLocalisedString();
+    final actualTime = DateFormat.Hm().format(flight.actualTime);
+    final scheduledTime = DateFormat.Hm().format(flight.scheduledTime);
+
+    switch (flight.status) {
+      case FlightStatus.noValue:
+      case FlightStatus.inFlight:
+        return [
+          Text(status),
+          Text("По расписанию в " + scheduledTime),
+        ];
+      case FlightStatus.canceled:
+        return [
+          Text(status),
+        ];
+      default:
+        return [
+          Text(status + " " + actualTime),
+          Text("По расписанию в " + scheduledTime),
+        ];
+    }
   }
 }

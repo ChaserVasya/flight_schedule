@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.flight_schedule">
    <application
-        android:label="flight_schedule"
+        android:label="Хомутово"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity

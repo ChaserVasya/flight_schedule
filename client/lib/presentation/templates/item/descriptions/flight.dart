@@ -17,6 +17,7 @@ abstract class FlightDescription extends StatelessWidget {
         ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: rightColumn(),
         ),
       ],
