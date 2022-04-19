@@ -2,9 +2,9 @@ import * as functions from "firebase-functions";
 import * as firestore from "firebase-admin/firestore";
 import * as messaging from "firebase-admin/messaging";
 import {FirebaseError} from "firebase-admin/app";
-import {FlightStatus} from "../entities/flight";
+import {statusToRU} from "../entities/flight";
 
-functions.firestore.document("flights/{flightID}").onUpdate(
+export const sendNotifications = functions.firestore.document("flights/{flightID}").onUpdate(
     async (change, context) => {
       const oldStatus = change.before.get("status");
       const newStatus = change.after.get("status");
@@ -29,28 +29,6 @@ functions.firestore.document("flights/{flightID}").onUpdate(
     }
 );
 
-function statusToRU(status:string):string {
-  switch (status) {
-    case FlightStatus.arrived:
-      return "прибыл";
-    case FlightStatus.boarding:
-      return "посадка";
-    case FlightStatus.canceled:
-      return "отменено";
-    case FlightStatus.checkIn:
-      return "регистрация";
-    case FlightStatus.delay:
-      return "задержан";
-    case FlightStatus.departed:
-      return "отбыл";
-    case FlightStatus.inFlight:
-      return "в полёте";
-    case FlightStatus.noValue:
-      return "-";
-    default:
-      throw Error("Wrong status: " + status);
-  }
-}
 
 async function sendFlightChangedMessage(
     tokens: string[],

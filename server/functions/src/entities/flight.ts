@@ -65,3 +65,26 @@ export enum FlightStatus {
   boarding = "boarding",
   departed = "departed",
 }
+
+export function statusToRU(status:string):string {
+  switch (status) {
+    case FlightStatus.arrived:
+      return "прибыл";
+    case FlightStatus.boarding:
+      return "посадка";
+    case FlightStatus.canceled:
+      return "отменено";
+    case FlightStatus.checkIn:
+      return "регистрация";
+    case FlightStatus.delay:
+      return "задержан";
+    case FlightStatus.departed:
+      return "отбыл";
+    case FlightStatus.inFlight:
+      return "в полёте";
+    case FlightStatus.noValue:
+      return "-";
+    default:
+      throw Error("Wrong status: " + status);
+  }
+}

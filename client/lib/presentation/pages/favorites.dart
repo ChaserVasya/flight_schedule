@@ -12,7 +12,7 @@ class FavoritesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final favStatus = context.read<SchedulePageViewModel>().favoriteStatus;
     return SchedulePageTemplate(
-      flightFilter: (flight) => favStatus(flight.id) == Status.favorite,
+      flightFilter: (flight) => favStatus(flight.id) == Status.favorite || favStatus(flight.id) == Status.refreshing,
       descriptionBuilder: (flight) {
         if (flight.departureCity == "Ю-САХАЛИНСК") return DepartureDescription(flight);
         if (flight.arrivalCity == "Ю-САХАЛИНСК") return ArrivalDescription(flight);

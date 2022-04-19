@@ -38,22 +38,30 @@ class SchedulePageTemplate extends StatelessWidget {
       case ConnectionState.active:
         return const CircularProgressIndicator();
       case ConnectionState.done:
-        return listBuilder(context);
+        return RefreshIndicator(
+          onRefresh: context.read<SchedulePageViewModel>().retrieve,
+          child: listBuilder(context),
+        );
     }
   }
 
   Widget listBuilder(BuildContext context) {
-    var flights = context.read<SchedulePageViewModel>().flights;
+    return Selector<SchedulePageViewModel, List<Flight>>(
+      selector: (_, viewModel) => viewModel.flights,
+      builder: (_, flights, __) {
+        print("List rebuilds");
 
-    flights.retainWhere(flightFilter);
+        flights.retainWhere(flightFilter);
 
-    return ListView.separated(
-      itemCount: flights.length,
-      separatorBuilder: (_, __) => Divider(color: Colors.grey[500]),
-      itemBuilder: (_, i) => FlightItem(
-        id: flights[i].id,
-        description: descriptionBuilder(flights[i]),
-      ),
+        return ListView.separated(
+          itemCount: flights.length,
+          separatorBuilder: (_, __) => Divider(color: Colors.grey[500]),
+          itemBuilder: (_, i) => FlightItem(
+            id: flights[i].id,
+            description: descriptionBuilder(flights[i]),
+          ),
+        );
+      },
     );
   }
 }
