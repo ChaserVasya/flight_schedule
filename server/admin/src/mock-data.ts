@@ -15,8 +15,8 @@ export const flights: Array<Flight> = [
     status: FlightStatus.canceled,
     codes: ["lala-321", "hui-1488"],
     arrivalCity: "Ю-САХАЛИНСК",
-    departureCity: "МОСКВА",
-    actualTime: new Date(2022, 4, 14, 15, 0),
+    departureCity: "ЗАЛУПОВО",
+    actualTime: new Date(2022, 4, 14, 14, 88),
     scheduledTime: new Date(2022, 4, 14, 15, 0),
   }),
   new Flight({
