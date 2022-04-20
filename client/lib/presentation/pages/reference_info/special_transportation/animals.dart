@@ -1,5 +1,4 @@
 import 'package:flight_schedule/presentation/pages/reference_info/templates/plain_reference_info.dart';
-import 'package:flight_schedule/presentation/templates/pages/page.dart';
 import 'package:flutter/material.dart';
 
 class AnimalsTransportationPage extends PlainReferenceInfoPage {

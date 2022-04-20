@@ -20,14 +20,12 @@ class SchedulePageViewModel extends ChangeNotifier {
   List<Flight> get flights => _flights.toList();
 
   Future<void> retrieve() async {
-    print("retreive");
     _favs = await _favsRepo.get();
     _flights = await _flightsRepo.get();
     notifyListeners();
   }
 
   Future<void> toggleFavoriteState(int id) async {
-    print("toggleFavoriteState");
     _refreshingFavs.add(id);
 
     notifyListeners();

@@ -49,8 +49,6 @@ class SchedulePageTemplate extends StatelessWidget {
     return Selector<SchedulePageViewModel, List<Flight>>(
       selector: (_, viewModel) => viewModel.flights,
       builder: (_, flights, __) {
-        print("List rebuilds");
-
         flights.retainWhere(flightFilter);
 
         return ListView.separated(
