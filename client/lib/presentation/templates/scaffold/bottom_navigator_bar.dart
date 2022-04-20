@@ -20,11 +20,11 @@ class BottomNavigationBarTemplate extends StatelessWidget {
   List<BottomNavigationBarItem> _createItems() {
     return const [
       BottomNavigationBarItem(
-        label: "Взлёт",
+        label: "Вылеты",
         icon: Icon(Icons.flight_takeoff),
       ),
       BottomNavigationBarItem(
-        label: "Посадка",
+        label: "Прилёты",
         icon: Icon(Icons.flight_land),
       ),
       BottomNavigationBarItem(
