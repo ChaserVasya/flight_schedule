@@ -37,7 +37,6 @@ class FavoriteToggle extends StatelessWidget {
       child: Selector<SchedulePageViewModel, Status>(
         selector: (_, viewModel) => viewModel.favoriteStatus(id),
         builder: (_, favoriteStatus, __) {
-          print("New status is '$favoriteStatus'");
           switch (favoriteStatus) {
             case Status.favorite:
               return const Icon(Icons.star);

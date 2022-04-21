@@ -15,26 +15,26 @@ enum FlightStatus {
 }
 
 extension FlightStatusUtils on FlightStatus {
-  String toLocalisedString() {
+  String toRUString() {
     switch (this) {
       case FlightStatus.noValue:
         return "-";
       case FlightStatus.canceled:
-        return "Отменено";
+        return "Отменён";
       case FlightStatus.delay:
-        return "Задержан до";
+        return "Задержан";
 
       case FlightStatus.inFlight:
         return "В полёте";
       case FlightStatus.arrived:
-        return "Прибыл в";
+        return "Прибыл";
 
       case FlightStatus.checkIn:
         return "Регистрация";
       case FlightStatus.boarding:
         return "Посадка";
       case FlightStatus.departed:
-        return "Отбыл";
+        return "Вылетел";
     }
   }
 }

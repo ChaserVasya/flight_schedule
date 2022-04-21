@@ -9,13 +9,26 @@ class DrawerTemplate extends StatelessWidget {
       key: key,
       child: SafeArea(
         child: Column(
-          children: const [
-            _NavigationButton("Covid-19", "/reference_info/covid_19"),
-            _NavigationButton("Специальные возможности", "/reference_info/special_transportation"),
-            _NavigationButton("Парковка", "/reference_info/parking"),
-            _NavigationButton("Как добраться", "/reference_info/how_to_get_there"),
-            _NavigationButton("Электронный посадочный талон", "/reference_info/electronic_boarding_pass"),
-            _NavigationButton("Контакты", "/reference_info/contacts"),
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Image.asset("assets/images/logo_text.png"),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  _NavigationButton("Как добраться", "/reference_info/how_to_get_there"),
+                  _NavigationButton("Парковка", "/reference_info/parking"),
+                  _NavigationButton("Covid-19", "/reference_info/covid_19"),
+                  _NavigationButton("Электронный посадочный талон", "/reference_info/electronic_boarding_pass"),
+                  _NavigationButton("Специальные возможности", "/reference_info/special_transportation"),
+                  _NavigationButton("Контакты", "/reference_info/contacts"),
+                ],
+              ),
+            ),
           ],
         ),
       ),
@@ -33,7 +46,14 @@ class _NavigationButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () => Navigator.of(context).pushNamed(path),
-      child: Text(text),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        child: Text(
+          text,
+          textScaleFactor: 1.5,
+          style: const TextStyle(color: Colors.black),
+        ),
+      ),
     );
   }
 }

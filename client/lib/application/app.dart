@@ -3,6 +3,8 @@ import 'package:flight_schedule/presentation/notifiers/schedule_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'error/error_handler.dart';
+import 'error/show_exception_dialog.dart';
 import 'routes.dart';
 
 class App extends StatelessWidget {
@@ -19,6 +21,11 @@ class App extends StatelessWidget {
         title: 'Flight schedule',
         routes: routes,
         initialRoute: "/init",
+        navigatorKey: navigatorKey,
+        builder: (_, widget) {
+          ErrorWidget.builder = ErrorHandler.errorWidgetBuilder;
+          return widget!;
+        },
       ),
     );
   }

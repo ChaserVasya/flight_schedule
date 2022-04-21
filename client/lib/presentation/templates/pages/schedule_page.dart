@@ -1,3 +1,4 @@
+import 'package:flight_schedule/application/error/error_handler.dart';
 import 'package:flight_schedule/domain/entities/flight.dart';
 import 'package:flight_schedule/presentation/notifiers/schedule_page.dart';
 import 'package:flight_schedule/presentation/templates/item/descriptions/flight.dart';
@@ -30,6 +31,11 @@ class SchedulePageTemplate extends StatelessWidget {
   }
 
   Widget contentBuilder(BuildContext context, AsyncSnapshot<void> snap) {
+    if (snap.error != null) {
+      ErrorHandler.onZoneError(snap.error!);
+      return const SizedBox();
+    }
+
     switch (snap.connectionState) {
       case ConnectionState.none:
         throw Exception();
@@ -49,8 +55,6 @@ class SchedulePageTemplate extends StatelessWidget {
     return Selector<SchedulePageViewModel, List<Flight>>(
       selector: (_, viewModel) => viewModel.flights,
       builder: (_, flights, __) {
-        print("List rebuilds");
-
         flights.retainWhere(flightFilter);
 
         return ListView.separated(
