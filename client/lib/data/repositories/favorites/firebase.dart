@@ -15,7 +15,7 @@ class FavoritesRepoFirebase implements FavoritesRepo {
   @override
   Future<Set<int>> get() async {
     final token = await FirebaseMessaging.instance.getToken();
-    final doc = await tokens.doc(token).get();
+    final doc = await tokens.doc(token).get(const GetOptions(source: Source.server));
     return doc.exists ? toFavorites(doc.data()) : {};
   }
 }

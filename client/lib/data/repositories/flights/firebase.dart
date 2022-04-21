@@ -8,7 +8,7 @@ class FlightsRepoFirebase implements FlightsRepo {
 
   @override
   Future<List<Flight>> get() async {
-    final snap = await store.collection("flights").get();
+    final snap = await store.collection("flights").get(const GetOptions(source: Source.server));
     return snap.docs.map((doc) => extractFlight(doc)).toList();
   }
 }
