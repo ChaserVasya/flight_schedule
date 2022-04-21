@@ -1,45 +1,36 @@
 import 'package:flight_schedule/domain/entities/flight.dart';
 import 'package:flight_schedule/domain/entities/flight_status.dart';
 import 'package:flight_schedule/presentation/templates/item/descriptions/flight.dart';
+import 'package:flight_schedule/presentation/templates/item/descriptions/scheduled_time.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+
+import 'board_time.dart';
+import 'status_text.dart';
 
 class DepartureDescription extends FlightDescription {
-  const DepartureDescription(this.flight, {Key? key}) : super(key: key);
-
-  final Flight flight;
+  const DepartureDescription(Flight flight, {Key? key}) : super(key: key, flight: flight);
 
   @override
-  List<Text> leftColumn() {
-    return [
-      Text(flight.departureCity),
-      Text(flight.arrivalCity),
-      Text(flight.codes.join(", ")),
-    ];
-  }
-
-  @override
-  List<Text> rightColumn() {
-    final status = flight.status.toLocalisedString();
-    final actualTime = DateFormat.Hm().format(flight.actualTime);
-    final scheduledTime = DateFormat.Hm().format(flight.scheduledTime);
-
+  List<Widget> rightColumn() {
     switch (flight.status) {
       case FlightStatus.noValue:
       case FlightStatus.checkIn:
       case FlightStatus.boarding:
         return [
-          Text(status),
-          Text("По расписанию в " + scheduledTime),
+          StatusText(flight.status),
+          ScheduledTime(flight.scheduledTime),
         ];
       case FlightStatus.canceled:
         return [
-          Text(status),
+          StatusText(flight.status),
         ];
       default:
         return [
-          Text(status + " " + actualTime),
-          Text("По расписанию в " + scheduledTime),
+          Row(children: [
+            StatusText(flight.status),
+            BoardTime(flight.actualTime),
+          ]),
+          ScheduledTime(flight.scheduledTime),
         ];
     }
   }
