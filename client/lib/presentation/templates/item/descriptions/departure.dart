@@ -1,11 +1,12 @@
 import 'package:flight_schedule/domain/entities/flight.dart';
 import 'package:flight_schedule/domain/entities/flight_status.dart';
 import 'package:flight_schedule/presentation/templates/item/descriptions/flight.dart';
-import 'package:flight_schedule/presentation/templates/item/descriptions/scheduled_time.dart';
 import 'package:flutter/material.dart';
 
-import 'board_time.dart';
-import 'status_text.dart';
+import 'parts/board_time.dart';
+import 'parts/scheduled_time.dart';
+import 'parts/status_text.dart';
+
 
 class DepartureDescription extends FlightDescription {
   const DepartureDescription(Flight flight, {Key? key}) : super(key: key, flight: flight);

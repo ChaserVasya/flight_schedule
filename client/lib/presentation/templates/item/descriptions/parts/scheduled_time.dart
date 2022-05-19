@@ -1,5 +1,6 @@
-import 'package:flight_schedule/presentation/templates/item/descriptions/board_time.dart';
 import 'package:flutter/material.dart';
+
+import 'board_time.dart';
 
 class ScheduledTime extends StatelessWidget {
   const ScheduledTime(this.dateTime, {Key? key}) : super(key: key);
