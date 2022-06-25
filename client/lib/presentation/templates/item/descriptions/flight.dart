@@ -19,6 +19,7 @@ abstract class FlightDescription extends StatelessWidget {
     final arrivalCity = Text(
       flight.arrivalCity,
       style: flight.arrivalCity == "Ю-САХАЛИНСК" ? yuzhnoSakhalinskTextStyle : otherCityTextStyle,
+      maxLines: 2,
     );
 
     final departureCity = Text(
