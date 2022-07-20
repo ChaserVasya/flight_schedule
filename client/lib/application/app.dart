@@ -21,6 +21,7 @@ class App extends StatelessWidget {
         title: 'Flight schedule',
         routes: routes,
         initialRoute: "/init",
+        debugShowCheckedModeBanner: false,
         navigatorKey: navigatorKey,
         builder: (_, widget) {
           ErrorWidget.builder = ErrorHandler.errorWidgetBuilder;
