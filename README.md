@@ -1,4 +1,4 @@
-<a href="https://drive.google.com/uc?export=view&id=1jfoGQX3-4YCAUPjLKx_ut0PqfE_3QKEl"><img src="https://drive.google.com/uc?export=view&id=1jfoGQX3-4YCAUPjLKx_ut0PqfE_3QKEl" style="width: 300; max-width: 100%; height: auto" title="Click to enlarge picture" />
+<a href="https://drive.google.com/uc?export=view&id=1jfoGQX3-4YCAUPjLKx_ut0PqfE_3QKEl"><img src="https://drive.google.com/uc?export=view&id=1jfoGQX3-4YCAUPjLKx_ut0PqfE_3QKEl" style="width: 300; max-width: 100%; height: auto" title="Reload page if you see this text" />
 
 # Flight Schedule
 
@@ -30,11 +30,11 @@
 
 Домашняя страница
 
-<a href="https://drive.google.com/uc?export=view&id=15-YBpeBPzGceakXHcJTJgPf6VlZAkx4u"><img src="https://drive.google.com/uc?export=view&id=15-YBpeBPzGceakXHcJTJgPf6VlZAkx4u" style="width: 300; max-width: 100%; height: auto" title="Click to enlarge picture" />
+<a href="https://drive.google.com/uc?export=view&id=15-YBpeBPzGceakXHcJTJgPf6VlZAkx4u"><img src="https://drive.google.com/uc?export=view&id=15-YBpeBPzGceakXHcJTJgPf6VlZAkx4u" style="width: 300; max-width: 100%; height: auto" title="Reload page if you see this text" />
 
 Выдвижной ящик
 
-<a href="https://drive.google.com/uc?export=view&id=1Qwe_O7rnRx9zsFshqF4y9cd-EELmM4Qa"><img src="https://drive.google.com/uc?export=view&id=1Qwe_O7rnRx9zsFshqF4y9cd-EELmM4Qa" style="width: 300; max-width: 100%; height: auto" title="Click to enlarge picture" />
+<a href="https://drive.google.com/uc?export=view&id=1Qwe_O7rnRx9zsFshqF4y9cd-EELmM4Qa"><img src="https://drive.google.com/uc?export=view&id=1Qwe_O7rnRx9zsFshqF4y9cd-EELmM4Qa" style="width: 300; max-width: 100%; height: auto" title="Reload page if you see this text" />
 
 # Видео (Кликните на изображение)
 
